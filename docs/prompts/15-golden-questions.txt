@@ -1,0 +1,116 @@
+## LLM Agent & RAG Interview Question Generator
+
+Research and create 15 interview-grade questions for **[TOPIC]** that comprehensively cover the subject from fundamentals to expert-level concepts, specifically tailored for LLM Agent, RAG Engineer, and AI/ML Engineer job profiles.
+
+---
+
+## Target Roles:
+- LLM/GenAI Engineer
+- RAG Systems Engineer  
+- AI Agent Developer
+- ML Platform Engineer
+- Applied AI Scientist
+
+## Industry Context:
+Questions should reflect real-world interview expectations for engineers building:
+- Large Language Model (LLM) applications and inference pipelines
+- Retrieval-Augmented Generation (RAG) systems
+- Autonomous AI Agents with tool use and memory
+- Multi-agent orchestration systems
+- Production ML/AI pipelines at scale
+
+## Interview Best Practices Applied:
+✓ Emphasize practical problem-solving over theoretical definitions
+✓ Include system design and architecture scenarios
+✓ Test debugging and optimization skills
+✓ Assess trade-off analysis capabilities
+✓ Cover production deployment challenges
+✓ Incorporate ethical AI and safety considerations
+
+---
+
+## Question Requirements:
+
+| Attribute | Specification |
+|-----------|---------------|
+| **Total Questions** | 15 (distributed as 5 + 5 + 5) |
+| **Format** | Question only — no explanations, no answers |
+| **Style** | Scenario-based, practical, and challenging |
+| **Depth** | Should differentiate junior from senior candidates |
+
+---
+
+## Question Distribution:
+
+### Level 1: Beginner to Intermediate (5 Questions)
+**Assess**: Core concepts, basic implementations, fundamental patterns
+
+Focus Areas:
+- Definition and purpose of [TOPIC] in LLM/RAG context
+- Basic implementation and setup
+- Common use cases and when to apply
+- Integration with popular frameworks (LangChain, LlamaIndex, etc.)
+- Reading/interpreting code and configs related to [TOPIC]
+
+Question Types: "What is...", "How would you...", "When should you use...", "Explain the difference between..."
+
+---
+
+### Level 2: Intermediate to Advanced (5 Questions)
+**Assess**: Production patterns, debugging skills, optimization awareness
+
+Focus Areas:
+- Production-ready implementation patterns
+- Error handling and edge cases
+- Performance considerations and bottlenecks
+- Debugging common issues
+- Best practices and anti-patterns
+- Integration complexities with external systems
+
+Question Types: "How would you debug...", "What are the trade-offs...", "Design a solution for...", "How do you optimize..."
+
+---
+
+### Level 3: Advanced to Master (5 Questions)
+**Assess**: System design, scalability, architectural decisions
+
+Focus Areas:
+- Distributed systems and scaling challenges
+- Complex architectural patterns
+- Performance optimization at scale
+- Security, compliance, and governance
+- Cost optimization strategies
+- Cutting-edge techniques and recent developments
+- Multi-tenant and enterprise considerations
+- Failure modes and resilience patterns
+
+Question Types: "Design a system that...", "How would you architect...", "What would you do if...", "Compare and contrast approaches for..."
+
+---
+
+## Output Format:
+Generate exactly 15 questions — 5 per level. Each question should be:
+- Self-contained and unambiguous
+- Answerable in 2-5 minutes during an interview
+- Discriminating (separates good from great candidates)
+- Practical (relates to real work, not trivia)
+
+**Format**: Just the numbered questions, no explanations or expected answers.
+
+---
+
+## Example Topics You Can Use This Prompt For:
+- Pydantic, LangChain, LlamaIndex, Semantic Kernel
+- Vector Databases (Pinecone, Weaviate, Qdrant, FAISS)
+- Embeddings and Retrieval Strategies
+- Prompt Engineering and Template Design
+- LLM Fine-tuning (LoRA, QLoRA, PEFT)
+- Agent Memory Systems (Short-term, Long-term, Episodic)
+- Tool Use and Function Calling
+- Multi-Agent Orchestration
+- RAG Chunking and Indexing Strategies
+- LLM Evaluation and Metrics
+- Guardrails and Safety Mechanisms
+- LLM Observability (LangSmith, Langfuse, Arize)
+- Caching Strategies for LLM Applications
+- Streaming and Real-time LLM Applications

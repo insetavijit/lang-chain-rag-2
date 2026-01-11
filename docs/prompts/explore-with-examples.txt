@@ -1,0 +1,60 @@
+# Topic Exploration Guide
+
+Create a comprehensive document to understand **[TOPIC]**.
+
+## Structure
+
+### 1. Topics Table (at the top)
+
+Start with a table listing all subtopics:
+
+| Topic | Brief |
+|-------|-------|
+| [Subtopic Name] | [One-line description] |
+| [Subtopic Name] | [One-line description] |
+| ... | ... |
+
+### 2. For each subtopic
+
+1. **Paragraph** - A clear explanation of what the concept is, why it matters, and when you would use it.
+
+2. **Code Example** - A complete, runnable code block with comments explaining important lines.
+
+## Format
+
+```markdown
+# [TOPIC]
+
+| Topic | Brief |
+|-------|-------|
+| Topic 1 | What it does |
+| Topic 2 | What it does |
+| ... | ... |
+
+---
+
+## Topic 1
+
+[Explanation paragraph]
+
+```python
+# Example code with inline comments
+```
+
+---
+
+## Topic 2
+
+[Explanation paragraph]
+
+```python
+# Example code with inline comments
+```
+```
+
+## Requirements
+
+- Cover all essential subtopics from basic to advanced
+- Keep explanations clear and practical
+- Make code examples realistic and runnable
+- Add helpful comments inside code blocks
