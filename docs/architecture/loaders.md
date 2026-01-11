@@ -217,7 +217,204 @@ print(f"Loaded {len(all_docs)} documents from {len(file_paths)} files")
 
 ---
 
-## Part 5: Loader Characteristics
+## Part 5: Under the Hood - Detailed Function Breakdown
+
+This section explains **exactly what happens** when each function is called, step by step.
+
+---
+
+### 🔍 get_loader() - Deep Dive
+
+**Purpose**: Factory function that returns the correct loader instance based on file extension.
+
+```python
+def get_loader(file_path: Union[str, Path]):
+```
+
+#### Step-by-Step Execution:
+
+| Step | Code | What Happens |
+|------|------|--------------|
+| 1 | `file_path = Path(file_path)` | Converts string to `Path` object for cross-platform compatibility |
+| 2 | `extension = file_path.suffix.lower()` | Extracts extension (e.g., `.pdf`) and lowercases it |
+| 3 | `loaders = {...}` | Creates mapping dictionary of extension → loader class |
+| 4 | `if extension not in loaders` | Checks if file type is supported |
+| 5 | `return loaders[extension](str(file_path))` | **Instantiates** the loader class with file path |
+
+#### What Each Loader Does Internally:
+
+| Loader | Library Used | Internal Process |
+|--------|--------------|------------------|
+| `PyPDFLoader` | `pypdf` | Opens PDF binary → Parses each page → Extracts text per page |
+| `Docx2txtLoader` | `docx2txt` | Unzips `.docx` (it's a ZIP!) → Parses `document.xml` → Extracts text |
+| `TextLoader` | Python built-in | Opens file with `open()` → Reads with UTF-8 encoding |
+
+#### Memory Diagram:
+
+```
+Input: "report.pdf"
+         ↓
+┌─────────────────────────────────────────────────────┐
+│  Step 1: Path("report.pdf")                          │
+│  Result: PosixPath('report.pdf') or WindowsPath(...) │
+├─────────────────────────────────────────────────────┤
+│  Step 2: path.suffix.lower()                         │
+│  Result: ".pdf"                                      │
+├─────────────────────────────────────────────────────┤
+│  Step 3: loaders[".pdf"]                             │
+│  Result: <class 'PyPDFLoader'>  (not instance yet!)  │
+├─────────────────────────────────────────────────────┤
+│  Step 4: PyPDFLoader("report.pdf")                   │
+│  Result: <PyPDFLoader instance>  ← READY TO LOAD     │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+### 🔍 load_document() - Deep Dive
+
+**Purpose**: Loads a single file and returns LangChain Document objects with enriched metadata.
+
+```python
+def load_document(file_path: Union[str, Path]) -> List[Document]:
+```
+
+#### Step-by-Step Execution:
+
+| Step | Code | What Happens | Data State |
+|------|------|--------------|------------|
+| 1 | `loader = get_loader(file_path)` | Gets configured loader instance | `loader = PyPDFLoader(...)` |
+| 2 | `documents = loader.load()` | **Reads file from disk, parses content** | `[Doc1, Doc2, ...]` |
+| 3 | `file_path = Path(file_path)` | Converts to Path for metadata extraction | `Path('report.pdf')` |
+| 4 | `for doc in documents:` | Iterates through each document | Processing each |
+| 5 | `doc.metadata["source"] = file_path.name` | Adds filename to metadata | `"report.pdf"` |
+| 6 | `doc.metadata["file_path"] = str(file_path)` | Adds full path to metadata | `"/full/path/report.pdf"` |
+| 7 | `return documents` | Returns enriched document list | Final output |
+
+#### What `.load()` Does for Each Loader:
+
+**PyPDFLoader.load():**
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  1. Open PDF file in binary mode: open("file.pdf", "rb")         │
+│  2. Create PdfReader object from pypdf library                    │
+│  3. Iterate through reader.pages:                                 │
+│     └── For each page:                                            │
+│         ├── page.extract_text() → raw text string                │
+│         ├── Create Document(page_content=text)                   │
+│         └── Add metadata: {"page": 0, "source": "file.pdf"}      │
+│  4. Return list of Documents (one per page)                      │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**Docx2txtLoader.load():**
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  1. DOCX is actually a ZIP file containing XML!                   │
+│  2. Extract and parse word/document.xml                           │
+│  3. Walk through XML nodes, extracting text from <w:t> tags      │
+│  4. Also extracts text from headers, footers, text boxes         │
+│  5. Return SINGLE Document with all text concatenated            │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**TextLoader.load():**
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  1. Open file: open("file.txt", encoding="utf-8")                │
+│  2. Read entire content: content = file.read()                   │
+│  3. Create single Document(page_content=content)                 │
+│  4. Add basic metadata: {"source": "file.txt"}                   │
+│  5. Return list with single Document                             │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+#### Document Object Structure:
+
+```python
+# Before metadata enrichment (from loader):
+Document(
+    page_content="The quick brown fox...",
+    metadata={"page": 0}  # Only for PDFs
+)
+
+# After metadata enrichment (from load_document):
+Document(
+    page_content="The quick brown fox...",
+    metadata={
+        "page": 0,                        # From PyPDFLoader
+        "source": "report.pdf",           # Added by load_document()
+        "file_path": "C:/docs/report.pdf" # Added by load_document()
+    }
+)
+```
+
+#### Why Enrich Metadata?
+
+| Metadata Field | Purpose | Used By |
+|----------------|---------|---------|
+| `source` | Display filename in UI | Streamlit app |
+| `file_path` | Full path for debugging | Error messages |
+| `page` | Track which page content came from | Citation in answers |
+
+---
+
+### 🔍 load_documents() - Deep Dive
+
+**Purpose**: Batch load multiple files with error tolerance.
+
+```python
+def load_documents(file_paths: List[Union[str, Path]]) -> List[Document]:
+```
+
+#### Step-by-Step Execution:
+
+| Step | Code | What Happens |
+|------|------|--------------|
+| 1 | `all_documents = []` | Initialize empty list for accumulating results |
+| 2 | `for file_path in file_paths:` | Iterate through each input path |
+| 3 | `try:` | Begin error handling block |
+| 4 | `docs = load_document(file_path)` | Load single document (calls function above) |
+| 5 | `all_documents.extend(docs)` | **Append** all docs from this file to main list |
+| 6 | `except Exception as e:` | Catch ANY error (file not found, corrupted, etc.) |
+| 7 | `print(f"Error loading...")` | Log error but **don't stop** processing |
+| 8 | `return all_documents` | Return whatever was successfully loaded |
+
+#### Why `extend()` Instead of `append()`?
+
+```python
+# WRONG - append() would create nested list:
+all_documents.append([doc1, doc2])
+# Result: [[doc1, doc2], [doc3, doc4]]  ← Nested!
+
+# CORRECT - extend() flattens into single list:
+all_documents.extend([doc1, doc2])
+# Result: [doc1, doc2, doc3, doc4]  ← Flat!
+```
+
+#### Error Handling Strategy:
+
+```
+Input: ["valid.pdf", "corrupted.pdf", "notes.txt"]
+          ↓
+┌────────────────────────────────────────────────────────────┐
+│  File 1: valid.pdf     → ✅ Load success → Add 5 docs     │
+│  File 2: corrupted.pdf → ❌ Exception → Print error, skip │
+│  File 3: notes.txt     → ✅ Load success → Add 1 doc      │
+├────────────────────────────────────────────────────────────┤
+│  Output: [6 documents total]                                │
+│  Console: "Error loading corrupted.pdf: ..."               │
+└────────────────────────────────────────────────────────────┘
+```
+
+This **fault-tolerant design** ensures:
+- One bad file doesn't crash the entire upload
+- User gets partial results instead of nothing
+- Errors are logged for debugging
+
+---
+
+## Part 6: Loader Characteristics
 
 ### PyPDFLoader Details
 
