@@ -13,7 +13,7 @@
 
 ## 🎓 [learning/](./learning/)
 **Guides, Cheat Sheets & Tutorials**
-- **Pydantic**: [Guide](./learning/learn-pydantic.md) | [Cheat Sheet](./learning/cheet-pydantic-settings.md)
+- **Pydantic**: [Guide](learn-pydantic.md) | [Cheat Sheet](cheet-pydantic-settings.md)
 - **LCEL**: [Guide](./learning/learn-lcel.md) | [Cheat Sheet](./learning/cheet-lcel.md)
 - **FAISS**: [Guide](./learning/learn-faiss.md) | [Cheat Sheet](./learning/cheet-faiss.md)
 

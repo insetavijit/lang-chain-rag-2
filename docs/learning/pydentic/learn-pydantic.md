@@ -2,7 +2,15 @@
 
 *Understanding Pydantic from basics to practical usage*
 
+
 ---
+
+> [!TIP]
+> **Interactive Version Available!**
+> You can run and modify the examples in this guide using the [Jupyter Notebook](../../notebooks/learn_pydantic.ipynb).
+
+---
+
 
 ## What is Pydantic?
 

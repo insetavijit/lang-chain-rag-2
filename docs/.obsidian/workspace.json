@@ -8,31 +8,49 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a5f3a86ea39e8134",
+            "id": "46eac054e4852e1e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lang-chain-rag-2/docs/app.md",
+                "file": "learning/pydentic/3. BaseModel Fundamentals.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3. BaseModel Fundamentals"
+            }
+          },
+          {
+            "id": "a4ffde85ad4bbe48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "learning/pydentic/15Pydentic-questions-fundamental.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "app"
+              "title": "15Pydentic-questions-fundamental"
             }
           },
           {
-            "id": "46eac054e4852e1e",
+            "id": "606dd342f11a9076",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "learning/pydentic/15Pydentic-questions-fundamental.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "15Pydentic-questions-fundamental"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -199,7 +217,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -212,9 +231,21 @@
       "graph:Open graph view": false
     }
   },
-  "active": "46eac054e4852e1e",
+  "active": "606dd342f11a9076",
   "lastOpenFiles": [
+    "mind-maps.md",
+    "learning/pydentic/15Pydentic-questions-fundamental.ipynb",
+    "learning/pydentic/15Pydentic-questions-fundamental.md",
+    "learning/pydentic/3. BaseModel Fundamentals.md",
+    "rules.md",
+    "learning/pydentic/pydantic-syllabus.md",
+    "learning/pydentic/learn-pydantic.md",
+    "learning/pydentic",
+    "README.md",
+    "Untitled",
+    "learning",
     "design/vectorstore.md",
+    "Untitled.base",
     "design/memory.md",
     "design/loaders.md",
     "design/embeddings.md",
@@ -223,11 +254,10 @@
     "design/chain.md",
     "design/app.md",
     "design",
-    "reference/learn-pydantic.md",
     "reference/learn-lcel.md",
     "reference/langchain-community.md",
     "reference/learn-faiss.md",
-    "reference/cheet-pydantic-settings.md",
+    "learning/pydentic/cheet-pydantic-settings.md",
     "reference/cheet-lcel.md",
     "reference/cheet-faiss.md",
     "reference",
@@ -237,13 +267,6 @@
     "planning/final-plan.md",
     "planning",
     "archive",
-    "New folder",
-    "lang-chain-rag-2/docs/config.md",
-    "lang-chain-rag-2/docs/learn-faiss.md",
-    "lang-chain-rag-2/docs/cheet-faiss.md",
-    "lang-chain-rag-2/docs/learn-lcel.md",
-    "lang-chain-rag-2/docs/cheet-lcel.md",
-    "lang-chain-rag-2/docs/learn-pydantic.md",
-    "lang-chain-rag-2/docs/cheet-pydantic-settings.md"
+    "New folder"
   ]
 }
