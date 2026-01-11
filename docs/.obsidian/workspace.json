@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "050b8575bb15ae37",
+    "type": "split",
+    "children": [
+      {
+        "id": "f79d5ca56906d165",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a5f3a86ea39e8134",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lang-chain-rag-2/docs/app.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "app"
+            }
+          },
+          {
+            "id": "46eac054e4852e1e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "964d81b2faff0200",
+    "type": "split",
+    "children": [
+      {
+        "id": "bea87b9b33c2942a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8cda844214925739",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "11a0b1914bedf519",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "db02d1b23a2bf468",
+    "type": "split",
+    "children": [
+      {
+        "id": "364da74e717a4933",
+        "type": "tabs",
+        "dimension": 80.95238095238095,
+        "children": [
+          {
+            "id": "a2743a5726f75a73",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "60d2043826362666",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "lang-chain-rag-2/docs/cheet-lcel.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for cheet-lcel"
+            }
+          },
+          {
+            "id": "322cca008c421e74",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "lang-chain-rag-2/docs/cheet-lcel.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from cheet-lcel"
+            }
+          },
+          {
+            "id": "919a6ec3778eae16",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "173817831ac749c7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "c97b7d41636b52e0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "lang-chain-rag-2/docs/cheet-lcel.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of cheet-lcel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fe4a585459c4c0e1",
+        "type": "tabs",
+        "dimension": 19.047619047619047,
+        "children": [
+          {
+            "id": "d718907c7ad64c2f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "graph:Open graph view": false
+    }
+  },
+  "active": "46eac054e4852e1e",
+  "lastOpenFiles": [
+    "design/vectorstore.md",
+    "design/memory.md",
+    "design/loaders.md",
+    "design/embeddings.md",
+    "design/config.md",
+    "design/chunker.md",
+    "design/chain.md",
+    "design/app.md",
+    "design",
+    "reference/learn-pydantic.md",
+    "reference/learn-lcel.md",
+    "reference/langchain-community.md",
+    "reference/learn-faiss.md",
+    "reference/cheet-pydantic-settings.md",
+    "reference/cheet-lcel.md",
+    "reference/cheet-faiss.md",
+    "reference",
+    "planning/plan-phase-1.md",
+    "planning/PH01-walkthrough.md",
+    "planning/implementation-p1.md",
+    "planning/final-plan.md",
+    "planning",
+    "archive",
+    "New folder",
+    "lang-chain-rag-2/docs/config.md",
+    "lang-chain-rag-2/docs/learn-faiss.md",
+    "lang-chain-rag-2/docs/cheet-faiss.md",
+    "lang-chain-rag-2/docs/learn-lcel.md",
+    "lang-chain-rag-2/docs/cheet-lcel.md",
+    "lang-chain-rag-2/docs/learn-pydantic.md",
+    "lang-chain-rag-2/docs/cheet-pydantic-settings.md"
+  ]
+}

@@ -358,21 +358,21 @@ except ValueError as e:
 
 ## Environment Variables Reference
 
-| Variable | Type | Default | Required |
-|----------|------|---------|----------|
-| `OPENROUTER_API_KEY` | str | None | One of three |
-| `GROQ_API_KEY` | str | None | One of three |
-| `OPENAI_API_KEY` | str | None | One of three |
-| `LANGFUSE_SECRET_KEY` | str | None | No |
-| `LANGFUSE_PUBLIC_KEY` | str | None | No |
-| `LANGFUSE_BASE_URL` | str | https://cloud.langfuse.com | No |
-| `LLM_MODEL` | str | gpt-4o-mini | No |
-| `EMBEDDING_MODEL` | str | text-embedding-3-small | No |
-| `CHUNK_SIZE` | int | 800 | No |
-| `CHUNK_OVERLAP` | int | 200 | No |
-| `RETRIEVAL_K` | int | 4 | No |
-| `DATA_DIR` | str | data | No |
-| `VECTOR_STORE_PATH` | str | data/vectorstore | No |
+| Variable              | Type | Default                    | Required     |
+| --------------------- | ---- | -------------------------- | ------------ |
+| `OPENROUTER_API_KEY`  | str  | None                       | One of three |
+| `GROQ_API_KEY`        | str  | None                       | One of three |
+| `OPENAI_API_KEY`      | str  | None                       | One of three |
+| `LANGFUSE_SECRET_KEY` | str  | None                       | No           |
+| `LANGFUSE_PUBLIC_KEY` | str  | None                       | No           |
+| `LANGFUSE_BASE_URL`   | str  | https://cloud.langfuse.com | No           |
+| `LLM_MODEL`           | str  | gpt-4o-mini                | No           |
+| `EMBEDDING_MODEL`     | str  | text-embedding-3-small     | No           |
+| `CHUNK_SIZE`          | int  | 800                        | No           |
+| `CHUNK_OVERLAP`       | int  | 200                        | No           |
+| `RETRIEVAL_K`         | int  | 4                          | No           |
+| `DATA_DIR`            | str  | data                       | No           |
+| `VECTOR_STORE_PATH`   | str  | data/vectorstore           | No           |
 
 ---
 
